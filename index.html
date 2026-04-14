@@ -8,100 +8,76 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   /* ── DEPOIMENTOS ── */
-  #depoimentos {
-    background: #D3CCC7;
-    padding: 110px 20px;
-    overflow: hidden;
+  #depoimentos{
+    background:#ffe7cf !important;
+    padding:110px 20px !important;
+    overflow:hidden !important;
   }
 
-  .depo-intro {
-    text-align: center;
-    max-width: 560px;
-    margin: 0 auto 64px;
+  .depo-intro{
+    text-align:center;
+    max-width:560px;
+    margin:0 auto 64px;
   }
 
-  .depo-intro .sec-tag {
-    justify-content: center;
-    color: #b48a5a;
+  .depo-intro .sec-tag{
+    justify-content:center;
+    color:#b48a5a;
   }
 
-  .depo-intro .sec-tag::before {
-    display: none;
+  .depo-intro .sec-tag::before{
+    display:none;
   }
 
-  .depo-intro .sec-h2 {
-    color: #1a1a1a;
-    text-align: center;
+  .depo-intro .sec-h2{
+    color:#1a1a1a;
+    text-align:center;
   }
 
-  .depo-sub {
-    font-size: .95rem;
-    color: rgba(0,0,0,.6);
-    margin-top: 14px;
+  .depo-sub{
+    font-size:.95rem;
+    color:rgba(0,0,0,.6);
+    margin-top:14px;
   }
 
-  /* GRID */
-  .depo-photo-grid {
-    max-width: 1200px;
-    margin: 0 auto;
-
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 28px 24px;
-    align-items: start;
+  /* 🔥 MASONRY (SEM BURACOS) */
+  .depo-photo-grid{
+    width:min(1320px, 94vw);
+    margin:0 auto;
+    column-count:3;
+    column-gap:22px;
   }
 
-  /* IMAGENS */
-  .depo-photo {
-    width: 100%;
-    height: auto;
-    display: block;
-    border-radius: 14px;
-    transition: transform .3s ease;
-  }
-
-  /* VARIAÇÃO ORGÂNICA */
-  .depo-photo:nth-child(1) { transform: translateY(10px) scale(1.05); }
-  .depo-photo:nth-child(2) { transform: translateY(-10px) scale(0.9); }
-  .depo-photo:nth-child(3) { transform: translateY(20px) scale(0.95); }
-
-  .depo-photo:nth-child(4) { transform: translateY(-5px) scale(1.1); }
-  .depo-photo:nth-child(5) { transform: translateY(15px) scale(0.9); }
-  .depo-photo:nth-child(6) { transform: translateY(-15px) scale(1.05); }
-
-  .depo-photo:nth-child(7) { transform: translateY(10px) scale(0.85); }
-  .depo-photo:nth-child(8) { transform: translateY(-8px) scale(1.1); }
-  .depo-photo:nth-child(9) { transform: translateY(18px) scale(0.95); }
-
-  /* HOVER */
-  .depo-photo:hover {
-    transform: scale(1.05) translateY(-6px) !important;
+  .depo-photo{
+    width:100%;
+    height:auto;
+    display:block;
+    border-radius:12px;
+    margin:0 0 22px;
+    break-inside:avoid;
   }
 
   /* TABLET */
-  @media (max-width: 900px) {
-    .depo-photo-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-
-    .depo-photo {
-      transform: none !important;
+  @media (max-width:980px){
+    .depo-photo-grid{
+      column-count:2;
+      column-gap:18px;
     }
   }
 
   /* MOBILE */
-  @media (max-width: 640px) {
-    #depoimentos {
-      padding: 90px 20px;
+  @media (max-width:640px){
+    #depoimentos{
+      padding:90px 20px;
     }
 
-    .depo-photo-grid {
-      grid-template-columns: 1fr;
-      gap: 16px;
+    .depo-photo-grid{
+      column-count:1;
+      column-gap:0;
     }
 
-    .depo-photo:hover {
-      transform: none;
+    .depo-photo{
+      margin:0 0 16px;
     }
   }
 /* ── RESET & VARIABLES ── */
