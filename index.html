@@ -7,6 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
+  /* ── DEPOIMENTOS ── */
   #depoimentos {
     background: #D3CCC7;
     padding: 110px 20px;
@@ -33,88 +34,62 @@
     text-align: center;
   }
 
+  .depo-sub {
+    font-size: .95rem;
+    color: rgba(0,0,0,.6);
+    margin-top: 14px;
+  }
+
+  /* GRID */
   .depo-photo-grid {
-    width: min(1280px, 92vw);
+    max-width: 1200px;
     margin: 0 auto;
+
     display: grid;
-    grid-template-columns: 1.15fr 0.95fr 1.05fr;
-    gap: 20px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px 24px;
     align-items: start;
   }
 
+  /* IMAGENS */
   .depo-photo {
     width: 100%;
     height: auto;
     display: block;
-    border-radius: 12px;
+    border-radius: 14px;
+    transition: transform .3s ease;
   }
 
-  /* tamanhos individuais sem scale, para não sobrepor */
-  .depo-photo:nth-child(1) {
-    max-width: 100%;
-    justify-self: end;
+  /* VARIAÇÃO ORGÂNICA */
+  .depo-photo:nth-child(1) { transform: translateY(10px) scale(1.05); }
+  .depo-photo:nth-child(2) { transform: translateY(-10px) scale(0.9); }
+  .depo-photo:nth-child(3) { transform: translateY(20px) scale(0.95); }
+
+  .depo-photo:nth-child(4) { transform: translateY(-5px) scale(1.1); }
+  .depo-photo:nth-child(5) { transform: translateY(15px) scale(0.9); }
+  .depo-photo:nth-child(6) { transform: translateY(-15px) scale(1.05); }
+
+  .depo-photo:nth-child(7) { transform: translateY(10px) scale(0.85); }
+  .depo-photo:nth-child(8) { transform: translateY(-8px) scale(1.1); }
+  .depo-photo:nth-child(9) { transform: translateY(18px) scale(0.95); }
+
+  /* HOVER */
+  .depo-photo:hover {
+    transform: scale(1.05) translateY(-6px) !important;
   }
 
-  .depo-photo:nth-child(2) {
-    max-width: 92%;
-    justify-self: center;
-    margin-top: 10px;
-  }
-
-  .depo-photo:nth-child(3) {
-    max-width: 82%;
-    justify-self: start;
-    margin-top: 18px;
-  }
-
-  .depo-photo:nth-child(4) {
-    max-width: 100%;
-    justify-self: end;
-    margin-top: -6px;
-  }
-
-  .depo-photo:nth-child(5) {
-    max-width: 84%;
-    justify-self: center;
-    margin-top: 8px;
-  }
-
-  .depo-photo:nth-child(6) {
-    max-width: 100%;
-    justify-self: start;
-    margin-top: -8px;
-  }
-
-  .depo-photo:nth-child(7) {
-    max-width: 78%;
-    justify-self: end;
-  }
-
-  .depo-photo:nth-child(8) {
-    max-width: 72%;
-    justify-self: center;
-    margin-top: -6px;
-  }
-
-  .depo-photo:nth-child(9) {
-    max-width: 92%;
-    justify-self: start;
-    margin-top: -4px;
-  }
-
-  @media (max-width: 980px) {
+  /* TABLET */
+  @media (max-width: 900px) {
     .depo-photo-grid {
       grid-template-columns: repeat(2, 1fr);
-      width: min(900px, 94vw);
     }
 
     .depo-photo {
-      max-width: 100% !important;
-      justify-self: stretch !important;
-      margin-top: 0 !important;
+      transform: none !important;
     }
   }
 
+  /* MOBILE */
   @media (max-width: 640px) {
     #depoimentos {
       padding: 90px 20px;
@@ -122,8 +97,11 @@
 
     .depo-photo-grid {
       grid-template-columns: 1fr;
-      width: min(520px, 94vw);
       gap: 16px;
+    }
+
+    .depo-photo:hover {
+      transform: none;
     }
   }
 /* ── RESET & VARIABLES ── */
@@ -849,14 +827,14 @@ footer { background:#0f0f0f; padding:40px 72px; display:flex; justify-content:sp
 <!-- DEPOIMENTOS -->
 <section id="depoimentos" class="sec">
 
-  <div class="depo-intro fade-up" style="margin-bottom:48px">
-    <p class="sec-tag" style="color:var(--gold-lt);justify-content:center">
+  <div class="depo-intro fade-up">
+    <p class="sec-tag">
       Prova social
     </p>
-    <h2 class="sec-h2" style="color:var(--cream);text-align:center">
+    <h2 class="sec-h2">
       O que dizem nossos <em>Clientes</em>
     </h2>
-    <p style="text-align:center;color:rgba(255,249,251,.4);font-size:.88rem;margin-top:8px">
+    <p class="depo-sub">
       Feedbacks reais de clientes e seguidores
     </p>
   </div>
