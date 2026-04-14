@@ -9,9 +9,9 @@
 <style>
   /* ── DEPOIMENTOS ── */
   #depoimentos{
-    background:#f4ece7 !important;
-    padding:110px 20px !important;
-    overflow:hidden !important;
+    background:#f4ece7;
+    padding:110px 20px;
+    overflow:hidden;
   }
 
   .depo-intro{
@@ -40,28 +40,35 @@
     margin-top:14px;
   }
 
-  /* 🔥 MASONRY (SEM BURACOS) */
+  /* GRID CONTROLADA */
   .depo-photo-grid{
     width:min(1320px, 94vw);
     margin:0 auto;
-    column-count:3;
-    column-gap:22px;
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:22px;
+    align-items:start;
   }
 
+  /* COLUNAS */
+  .depo-col{
+    display:flex;
+    flex-direction:column;
+    gap:22px;
+  }
+
+  /* IMAGENS */
   .depo-photo{
     width:100%;
     height:auto;
     display:block;
     border-radius:12px;
-    margin:0 0 22px;
-    break-inside:avoid;
   }
 
   /* TABLET */
   @media (max-width:980px){
     .depo-photo-grid{
-      column-count:2;
-      column-gap:18px;
+      grid-template-columns:repeat(2, 1fr);
     }
   }
 
@@ -72,12 +79,7 @@
     }
 
     .depo-photo-grid{
-      column-count:1;
-      column-gap:0;
-    }
-
-    .depo-photo{
-      margin:0 0 16px;
+      grid-template-columns:1fr;
     }
   }
 /* ── RESET & VARIABLES ── */
@@ -804,31 +806,37 @@ footer { background:#0f0f0f; padding:40px 72px; display:flex; justify-content:sp
 <section id="depoimentos" class="sec">
 
   <div class="depo-intro fade-up">
-    <p class="sec-tag">
-      Prova social
-    </p>
-    <h2 class="sec-h2">
-      O que dizem nossos <em>Clientes</em>
-    </h2>
-    <p class="depo-sub">
-      Feedbacks reais de clientes e seguidores
-    </p>
+    <p class="sec-tag">Prova social</p>
+    <h2 class="sec-h2">O que dizem nossos <em>Clientes</em></h2>
+    <p class="depo-sub">Feedbacks reais de clientes e seguidores</p>
   </div>
 
   <div class="depo-photo-grid fade-up">
-    <img class="depo-photo" src="images/1.png" alt="Depoimento 1">
-    <img class="depo-photo" src="images/2.png" alt="Depoimento 2">
-    <img class="depo-photo" src="images/3.png" alt="Depoimento 3">
-    <img class="depo-photo" src="images/4.png" alt="Depoimento 4">
-    <img class="depo-photo" src="images/5.png" alt="Depoimento 5">
-    <img class="depo-photo" src="images/6.png" alt="Depoimento 6">
-    <img class="depo-photo" src="images/7.png" alt="Depoimento 7">
-    <img class="depo-photo" src="images/8.png" alt="Depoimento 8">
-    <img class="depo-photo" src="images/9.png" alt="Depoimento 9">
+
+    <!-- COLUNA 1 -->
+    <div class="depo-col">
+      <img class="depo-photo" src="images/1.png">
+      <img class="depo-photo" src="images/4.png">
+      <img class="depo-photo" src="images/7.png">
+    </div>
+
+    <!-- COLUNA 2 -->
+    <div class="depo-col">
+      <img class="depo-photo" src="images/2.png">
+      <img class="depo-photo" src="images/5.png">
+      <img class="depo-photo" src="images/8.png">
+    </div>
+
+    <!-- COLUNA 3 (AQUI VOCÊ CONTROLA) -->
+    <div class="depo-col">
+      <img class="depo-photo" src="images/3.png">
+      <img class="depo-photo" src="images/10.png"> <!-- NOVA IMAGEM -->
+      <img class="depo-photo" src="images/6.png">
+      <img class="depo-photo" src="images/9.png">
+    </div>
+
   </div>
-
 </section>
-
 <!-- CONTATO -->
 <section id="contato">
   <div class="ct-left">
