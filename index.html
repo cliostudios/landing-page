@@ -125,7 +125,7 @@ nav.scrolled { padding:13px 64px; box-shadow:0 4px 32px rgba(30,30,30,.07); }
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 200px 0 60px;
+  padding: 180px 0 40px;
 }
 
 .hero-l {
@@ -393,6 +393,22 @@ nav.scrolled { padding:13px 64px; box-shadow:0 4px 32px rgba(30,30,30,.07); }
     padding: 72px 20px;
   }
 }
+/* ── SECTION COMMONS ── */
+.sec { padding:96px 72px; }
+.sec-tag {
+  display:inline-flex; align-items:center; gap:12px;
+  font-size:.66rem; letter-spacing:.22em; text-transform:uppercase;
+  color:var(--gold); margin-bottom:18px;
+}
+.sec-tag::before { content:''; width:26px; height:1px; background:var(--gold); }
+.sec-h2 {
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(2rem,3.2vw,3.4rem);
+  font-weight:300; line-height:1.1; color:var(--dark); margin-bottom:12px;
+}
+.sec-h2 em { font-style:italic; color:var(--gold); }
+.sec-sub { font-size:.9rem; line-height:1.8; color:var(--muted); max-width:560px; margin-top:8px; }
+
 /* ── QUEM SOMOS ── */
 #sobre {
   background:var(--dark);
@@ -703,6 +719,7 @@ footer { background:#0f0f0f; padding:40px 72px; display:flex; justify-content:sp
   </div>
 </section>
 
+<!-- BARRA PRETA -->
 <div class="hero-impact">
   <div class="impact-item">
     <span class="impact-num">+23M</span>
@@ -719,6 +736,7 @@ footer { background:#0f0f0f; padding:40px 72px; display:flex; justify-content:sp
     <span class="impact-label">Experiência no YouTube</span>
   </div>
 </div>
+
 <!-- QUEM SOMOS -->
 <section id="sobre" class="sec">
   <div class="fade-up">
