@@ -1457,15 +1457,44 @@ footer {
       </div>
 
       <!-- SHORTS -->
-      <div class="port-item port-item-short" data-cat="short" style="display:none">
-        <div class="port-short"><iframe src="https://www.youtube.com/embed/0TqFHGRrBIo" allowfullscreen></iframe></div>
-      </div>
-      <div class="port-item port-item-short" data-cat="short" style="display:none">
-        <div class="port-short"><iframe src="https://www.youtube.com/embed/wdaIzZBS5mk" allowfullscreen></iframe></div>
-      </div>
-      <div class="port-item port-item-short" data-cat="short" style="display:none">
-        <div class="port-short"><iframe src="https://www.youtube.com/embed/Co4fKkc6wqQ" allowfullscreen></iframe></div>
-      </div>
+<div class="port-item port-item-short" data-cat="short">
+  <div class="port-short">
+    <iframe
+      src="https://www.youtube.com/embed/0TqFHGRrBIo"
+      title="Short 1"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      referrerpolicy="strict-origin-when-cross-origin"
+      allowfullscreen>
+    </iframe>
+  </div>
+</div>
+
+<div class="port-item port-item-short" data-cat="short">
+  <div class="port-short">
+    <iframe
+      src="https://www.youtube.com/embed/wdaIzZBS5mk"
+      title="Short 2"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      referrerpolicy="strict-origin-when-cross-origin"
+      allowfullscreen>
+    </iframe>
+  </div>
+</div>
+
+<div class="port-item port-item-short" data-cat="short">
+  <div class="port-short">
+    <iframe
+      src="https://www.youtube.com/embed/Co4fKkc6wqQ"
+      title="Short 3"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      referrerpolicy="strict-origin-when-cross-origin"
+      allowfullscreen>
+    </iframe>
+  </div>
+</div>
 
       <!-- THUMBS -->
       <div class="port-item" data-cat="thumb" style="display:none">
@@ -1634,13 +1663,23 @@ footer {
 
   // PORTFÓLIO (FILTROS)
   function filterPort(e, cat) {
-    document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
-    e.currentTarget.classList.add('active');
+  document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+  e.currentTarget.classList.add('active');
 
-    document.querySelectorAll('#port-grid > div').forEach(el => {
-      el.style.display = el.dataset.cat === cat ? '' : 'none';
-    });
+  document.querySelectorAll('#port-grid > div').forEach(el => {
+    el.style.display = el.dataset.cat === cat ? '' : 'none';
+  });
+
+  // 🔥 CORREÇÃO DOS SHORTS
+  if (cat === 'short') {
+    setTimeout(() => {
+      document.querySelectorAll('#port-grid iframe').forEach((iframe) => {
+        const src = iframe.src;
+        iframe.src = src;
+      });
+    }, 50);
   }
+}
 
   // TUDO AO CARREGAR
   window.addEventListener('DOMContentLoaded', () => {
