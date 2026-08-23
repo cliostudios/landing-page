@@ -62,7 +62,7 @@
       "url": "https://cliostudios.com.br/guia-do-titulo/",
       "offers": {
         "@type": "Offer",
-        "price": "47.00",
+        "price": "19.90",
         "priceCurrency": "BRL",
         "availability": "https://schema.org/InStock",
         "url": "https://cliostudios.com.br/guia-do-titulo/",
@@ -72,8 +72,6 @@
     {
       "@type": "FAQPage",
       "mainEntity": [
-        {"@type":"Question","name":"Como escrever um bom título para vídeo do YouTube?","acceptedAnswer":{"@type":"Answer","text":"Primeiro, identifique se o vídeo é buscável (as pessoas procuram por ele) ou recomendável (aparece para quem não procurava). Depois, gere dez títulos, corte os que estão na rota errada, compare os que sobraram dois a dois e confira o vencedor. Este ebook ensina esse processo do começo ao fim."}},
-        {"@type":"Question","name":"Qual a diferença entre vídeo buscável e recomendável?","acceptedAnswer":{"@type":"Answer","text":"Vídeo buscável responde a uma pergunta que a pessoa digita na busca, como um tutorial. Vídeo recomendável aparece na página inicial para quem não estava procurando e precisa interromper com medo, curiosidade ou desejo. O título muda completamente conforme o tipo."}},
         {"@type":"Question","name":"O título ajuda mesmo a ter mais visualizações?","acceptedAnswer":{"@type":"Answer","text":"Sim. O título decide quantas pessoas clicam entre as que veem o vídeo aparecer, e esse clique influencia diretamente quantas entregas o vídeo recebe. Além disso, o título pode ser reescrito depois de publicado, sem refazer o vídeo."}},
         {"@type":"Question","name":"Preciso de ferramentas pagas para aplicar o método?","acceptedAnswer":{"@type":"Answer","text":"Não. O método funciona inteiro com o autocomplete gratuito do próprio YouTube. Ferramentas de IA como ChatGPT ou Claude são opcionais e há prompts prontos no ebook para quem quiser usar."}},
         {"@type":"Question","name":"Para quem é o ebook?","acceptedAnswer":{"@type":"Answer","text":"Para criadores, marcas e especialistas que produzem vídeos no YouTube e querem que eles sejam clicados e encontrados, inclusive canais que estão começando do zero."}},
@@ -135,21 +133,15 @@ header{position:sticky;top:0;z-index:50;background:rgba(24,24,24,.9);backdrop-fi
 
 /* hero */
 .hero{padding:70px 0 60px;border-bottom:1px solid var(--line);}
-.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:50px;align-items:center;}
+.hero-grid{display:block;max-width:760px;margin:0 auto;text-align:center;}
 .hero h1{font-size:clamp(2.1rem,5.2vw,3.5rem);font-weight:900;color:#fff;margin-bottom:22px;}
-.hero p.sub{font-size:1.15rem;color:var(--ink);max-width:33ch;margin-bottom:28px;}
-.price-row{display:flex;align-items:baseline;gap:12px;margin-bottom:22px;}
+.hero p.sub{font-size:1.2rem;color:var(--ink);max-width:48ch;margin:0 auto 28px;}
+.price-row{display:flex;align-items:baseline;justify-content:center;gap:12px;margin-bottom:22px;}
 .price{font-family:'Playfair Display';font-weight:900;font-size:2.4rem;color:var(--gold);}
 .price small{font-size:.9rem;color:var(--muted);font-family:'Lato';font-weight:700;}
-.cta-row{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:18px;}
+.cta-row{display:flex;flex-wrap:wrap;justify-content:center;gap:14px;margin-bottom:18px;}
 .reassure{font-size:.85rem;color:var(--muted);}
 .reassure b{color:var(--ink);}
-/* hero cover stack */
-.cover-stack{position:relative;perspective:1600px;display:flex;justify-content:center;}
-.cover-stack img{border-radius:6px;box-shadow:0 30px 60px rgba(0,0,0,.55);border:1px solid rgba(230,195,91,.25);}
-.cover-stack .main{width:78%;transform:rotateY(-16deg) rotateX(3deg);position:relative;z-index:3;}
-.cover-stack .back{position:absolute;width:70%;top:6%;left:26%;transform:rotateY(-16deg);opacity:.55;z-index:1;filter:brightness(.7);}
-
 /* stats bar */
 .stats{background:var(--bg2);border-bottom:1px solid var(--line);}
 .stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;padding:34px 0;text-align:center;}
@@ -182,7 +174,7 @@ hr.soft{border:0;border-top:1px solid var(--line);margin:0;}
 .toc-list .num{color:var(--gold);font-weight:900;font-family:'Playfair Display';min-width:26px;}
 .toc-list b{color:#f3efe6;font-weight:700;}
 .toc-list span{color:var(--muted);font-size:.92rem;}
-.gallery{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.gallery{display:grid;grid-template-columns:1fr;gap:16px;max-width:300px;}
 .gallery img{border-radius:6px;border:1px solid var(--line);box-shadow:0 12px 30px rgba(0,0,0,.4);}
 .gallery figure{margin:0;}
 .gallery figcaption{font-size:.78rem;color:var(--faint);margin-top:6px;text-align:center;}
@@ -216,7 +208,27 @@ footer{padding:46px 0 34px;}
 .foot-links a:hover{color:var(--gold);}
 .copyright{color:var(--faint);font-size:.8rem;margin-top:22px;text-align:center;}
 
-@media(max-width:800px){.hero-grid{grid-template-columns:1fr;gap:36px;}.hero .cover-stack{order:-1;max-width:340px;margin:0 auto;}}
+/* preview modal */
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.85);backdrop-filter:blur(4px);display:none;align-items:center;justify-content:center;z-index:100;padding:28px;}
+.modal.open{display:flex;}
+.modal-inner{max-width:900px;width:100%;max-height:90vh;overflow:auto;text-align:center;}
+.modal .m-eyebrow{font-family:'Lato';font-weight:700;letter-spacing:3px;text-transform:uppercase;font-size:.72rem;color:var(--wine-text);margin-bottom:16px;}
+.modal .m-grid{display:grid;grid-template-columns:0.8fr 1fr;gap:26px;text-align:left;align-items:start;}
+.modal .m-cover img{width:100%;border-radius:6px;border:1px solid var(--line);box-shadow:0 18px 40px rgba(0,0,0,.5);}
+.modal .m-cover figcaption{font-size:.8rem;color:var(--muted);margin-top:8px;text-align:center;}
+.modal .m-toc-title{font-family:'Playfair Display';color:var(--gold);font-size:1.5rem;margin-bottom:12px;}
+.modal .m-toc ul{list-style:none;padding:0;margin:0;}
+.modal .m-toc li{padding:9px 0;border-bottom:1px dotted var(--line);color:var(--ink);font-size:.94rem;line-height:1.4;}
+.modal .m-toc li span{display:block;color:var(--wine-text);font-weight:700;font-size:.68rem;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:2px;}
+@media(max-width:640px){.modal .m-grid{grid-template-columns:1fr;}}
+.modal figcaption{font-size:.8rem;color:var(--muted);margin-top:8px;}
+.modal .m-close{position:fixed;top:16px;right:26px;color:var(--ink);font-size:2.4rem;line-height:1;cursor:pointer;background:none;border:none;}
+.modal .m-close:hover{color:var(--gold);}
+.modal .m-note{color:var(--muted);font-size:.9rem;margin-top:18px;}
+@media(max-width:640px){.modal .m-grid{grid-template-columns:1fr;}}
+@media(max-width:640px){.modal-inner{max-width:420px;}}
+
+
 </style>
 </head>
 <body>
@@ -245,18 +257,14 @@ footer{padding:46px 0 34px;}
       <h1>Guia do título <em>ideal</em> para o YouTube</h1>
       <p class="sub">O passo a passo completo para escrever títulos que são <strong>clicados</strong> — e <strong>encontrados</strong> no YouTube.</p>
       <div class="price-row">
-        <span class="price">R$ 47</span>
+        <span class="price">R$ 19,90</span>
         <span class="small muted">· pagamento único · PDF para baixar e imprimir</span>
       </div>
       <div class="cta-row">
         <a class="btn btn-gold" href="#comprar">Quero meu exemplar</a>
-        <a class="btn btn-ghost" href="#dentro">Ver o que tem dentro</a>
+        <a class="btn btn-ghost" href="#dentro" id="btnPreview">Ver o que tem dentro</a>
       </div>
       <p class="reassure">Método testado em canais reais · <b>+23 milhões</b> de visualizações acumuladas pela Clio Studios.</p>
-    </div>
-    <div class="cover-stack">
-      <img class="back" src="assets/ebook-conceito.png" alt="Página interna do ebook mostrando a tabela de vídeos buscáveis e recomendáveis" loading="eager" width="1241" height="1754">
-      <img class="main" src="assets/ebook-capa.png" alt="Capa do ebook Guia do Título Ideal para o YouTube, da Clio Studios, com fundo escuro e título em dourado" loading="eager" width="1241" height="1754">
     </div>
   </div>
 </section>
@@ -343,10 +351,7 @@ footer{padding:46px 0 34px;}
         <li><span class="num">+</span><span><b>Anexos A, B e C</b><br><span>Prompts de IA, estruturas de emergência e os erros a evitar.</span></span></li>
       </ul>
       <div class="gallery">
-        <figure><img src="assets/ebook-conceito.png" alt="Página do ebook explicando a diferença entre título buscável e recomendável com tabela de exemplos" loading="lazy" width="1241" height="1754"><figcaption>O conceito, com exemplos</figcaption></figure>
-        <figure><img src="assets/ebook-prompts.png" alt="Página do ebook com prompts prontos de inteligência artificial para gerar títulos" loading="lazy" width="1241" height="1754"><figcaption>Prompts prontos de IA</figcaption></figure>
-        <figure><img src="assets/ebook-pratica.png" alt="Folha de prática imprimível do ebook para aplicar o método em cada vídeo" loading="lazy" width="1241" height="1754"><figcaption>Folha de prática</figcaption></figure>
-        <figure><img src="assets/ebook-capa.png" alt="Capa do ebook Guia do Título Ideal para o YouTube" loading="lazy" width="1241" height="1754"><figcaption>Ebook em PDF · A4</figcaption></figure>
+        <figure><img src="assets/ebook-capa.png" alt="Capa do ebook Guia do Título Ideal para o YouTube" loading="lazy" width="1241" height="1754"><figcaption>Ebook em PDF · A4 · 38 páginas</figcaption></figure>
       </div>
     </div>
   </div>
@@ -376,9 +381,7 @@ footer{padding:46px 0 34px;}
     <div class="eyebrow">Dúvidas frequentes</div>
     <h2>Perguntas <em>rápidas</em></h2>
     <div class="faq" style="margin-top:20px">
-      <details open><summary>Como escrever um bom título para vídeo do YouTube?</summary><p>Primeiro, identifique se o vídeo é buscável (as pessoas procuram por ele) ou recomendável (aparece para quem não procurava). Depois, gere dez títulos, corte os que estão na rota errada, compare os que sobraram dois a dois e confira o vencedor. É exatamente esse processo que o ebook ensina, do começo ao fim.</p></details>
-      <details><summary>Qual a diferença entre vídeo buscável e recomendável?</summary><p>Vídeo buscável responde a uma pergunta que a pessoa digita na busca, como um tutorial. Vídeo recomendável aparece na página inicial para quem não estava procurando e precisa interromper com medo, curiosidade ou desejo. O título muda completamente conforme o tipo — e confundir os dois é o erro mais comum.</p></details>
-      <details><summary>O título ajuda mesmo a ter mais visualizações?</summary><p>Sim. O título decide quantas pessoas clicam entre as que veem o vídeo aparecer, e esse clique influencia diretamente quantas entregas o vídeo recebe. E, diferente da gravação, o título pode ser reescrito depois de publicado — sem refazer nada.</p></details>
+      <details open><summary>O título ajuda mesmo a ter mais visualizações?</summary><p>Sim. O título decide quantas pessoas clicam entre as que veem o vídeo aparecer, e esse clique influencia diretamente quantas entregas o vídeo recebe. E, diferente da gravação, o título pode ser reescrito depois de publicado — sem refazer nada.</p></details>
       <details><summary>Preciso de ferramentas pagas?</summary><p>Não. O método funciona inteiro com o autocomplete gratuito do próprio YouTube. Ferramentas de IA como ChatGPT ou Claude são opcionais, e há prompts prontos no ebook para quem quiser acelerar.</p></details>
       <details><summary>Serve para canal pequeno ou começando do zero?</summary><p>Serve, e é um ótimo momento para aprender. Começar aplicando o processo certo evita meses publicando no escuro.</p></details>
       <details><summary>Como recebo o ebook depois da compra?</summary><p>É um arquivo digital em PDF, entregue logo após a confirmação do pagamento. Você pode ler no celular ou computador e imprimir a folha de prática quantas vezes quiser.</p></details>
@@ -393,7 +396,7 @@ footer{padding:46px 0 34px;}
     <h2>Transforme o título no ativo mais <em>valioso</em> do seu canal</h2>
     <p class="lead-txt muted" style="margin:0 auto 22px">Pagamento único. Acesso imediato ao PDF completo, para baixar e imprimir.</p>
     <div class="price-row" style="justify-content:center">
-      <span class="price">R$ 47</span>
+      <span class="price">R$ 19,90</span>
     </div>
     <div class="cta-row" style="justify-content:center;margin-bottom:14px">
       <!-- TROQUE o href abaixo pelo seu link de checkout (Hotmart, Kiwify, etc.). Enquanto isso, a compra chega pelo WhatsApp. -->
@@ -418,9 +421,40 @@ footer{padding:46px 0 34px;}
         <a href="https://wa.me/5532988887135">WhatsApp</a>
       </div>
     </div>
-    <div class="copyright">© 2025 Clio Studios. Todos os direitos reservados. · Juiz de Fora, MG — Atendimento Nacional</div>
+    <div class="copyright">© 2026 Clio Studios. Todos os direitos reservados.</div>
   </div>
 </footer>
+
+<!-- ============ MODAL PRÉVIA ============ -->
+<div class="modal" id="previewModal" role="dialog" aria-modal="true" aria-label="Prévia do ebook">
+  <button class="m-close" aria-label="Fechar prévia" onclick="closePreview()">&times;</button>
+  <div class="modal-inner">
+    <div class="m-eyebrow">Prévia do ebook</div>
+    <div class="m-grid">
+      <figure class="m-cover" style="margin:0"><img src="assets/ebook-capa.png" alt="Capa do ebook Guia do Título Ideal para o YouTube"><figcaption>Capa</figcaption></figure>
+      <div class="m-toc">
+        <div class="m-toc-title">Sumário</div>
+        <ul>
+          <li><span>Abertura</span>Por que o título decide tanta coisa · Como usar este material</li>
+          <li><span>Parte 1 · O conceito</span>Buscável ou recomendável</li>
+          <li><span>Parte 2 · O processo</span>Antes de escrever · Rota buscável · Rota recomendável · Gerar 10 títulos · De 10 para 1 · A conferência final</li>
+          <li><span>Parte 3 · Aplicação</span>Seis títulos reescritos · O processo em uma página · Folha para praticar</li>
+          <li><span>Anexos</span>Os prompts · Estruturas para destravar · Erros que anulam um título</li>
+        </ul>
+      </div>
+    </div>
+    <p class="m-note">Ebook completo em PDF · formato A4 · 38 páginas.</p>
+  </div>
+</div>
+
+<script>
+  var _pm=document.getElementById('previewModal');
+  function openPreview(){_pm.classList.add('open');document.body.style.overflow='hidden';}
+  function closePreview(){_pm.classList.remove('open');document.body.style.overflow='';}
+  document.getElementById('btnPreview').addEventListener('click',function(e){e.preventDefault();openPreview();});
+  _pm.addEventListener('click',function(e){if(e.target===_pm)closePreview();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')closePreview();});
+</script>
 
 </body>
 </html>
