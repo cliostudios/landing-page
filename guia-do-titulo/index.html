@@ -119,11 +119,6 @@ img{max-width:100%;display:block;}
 .btn-ghost:hover{border-color:var(--gold);}
 .btn-wa{background:#25543a;color:#eafff0;border-color:#2f6b49;}
 .btn-wa:hover{background:#2f6b49;}
-/* checkout (Hotmart) buttons keep the brand look, not the default green button */
-a.hotmart-fb.btn{display:inline-block!important;padding:15px 30px!important;border-radius:6px!important;line-height:normal!important;text-decoration:none!important;cursor:pointer;}
-a.hotmart-fb.btn-gold{background:var(--gold)!important;color:#1e1e1e!important;border:2px solid transparent!important;}
-a.hotmart-fb.btn img{display:none!important;}
-.nav a.hotmart-fb.btn{padding:9px 18px!important;}
 /* mid-page CTA band */
 .midcta{background:var(--surface2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);text-align:center;}
 
@@ -251,7 +246,7 @@ footer{padding:46px 0 34px;}
       <a class="hideM" href="#aprender">O que você aprende</a>
       <a class="hideM" href="#dentro">O que tem dentro</a>
       <a class="hideM" href="#faq">Dúvidas</a>
-      <a class="btn btn-gold hotmart-fb hotmart__button-checkout" href="https://pay.hotmart.com/V107300709G?checkoutMode=2" onclick="return false;">Comprar</a>
+      <a class="btn btn-gold" href="https://pay.hotmart.com/V107300709G" target="_blank" rel="noopener">Comprar</a>
     </nav>
   </div>
 </header>
@@ -268,7 +263,7 @@ footer{padding:46px 0 34px;}
         <span class="small muted">· pagamento único · PDF para baixar e imprimir</span>
       </div>
       <div class="cta-row">
-        <a class="btn btn-gold hotmart-fb hotmart__button-checkout" href="https://pay.hotmart.com/V107300709G?checkoutMode=2" onclick="return false;">Quero meu exemplar</a>
+        <a class="btn btn-gold" href="https://pay.hotmart.com/V107300709G" target="_blank" rel="noopener">Quero meu exemplar</a>
         <a class="btn btn-ghost" href="#dentro" id="btnPreview">Ver o que tem dentro</a>
       </div>
       <p class="reassure">Método testado em canais reais · <b>+23 milhões</b> de visualizações acumuladas pela Clio Studios.</p>
@@ -384,7 +379,7 @@ footer{padding:46px 0 34px;}
   <div class="wrap center">
     <h2 style="margin-bottom:10px">Pare de perder cliques por causa do <em>título</em></h2>
     <p class="lead-txt muted" style="margin:0 auto 20px">Um método simples que você aplica em cada vídeo — R$ 19,90, pagamento único.</p>
-    <a class="btn btn-gold hotmart-fb hotmart__button-checkout" href="https://pay.hotmart.com/V107300709G?checkoutMode=2" onclick="return false;">Quero meu exemplar</a>
+    <a class="btn btn-gold" href="https://pay.hotmart.com/V107300709G" target="_blank" rel="noopener">Quero meu exemplar</a>
   </div>
 </section>
 <hr class="soft">
@@ -413,7 +408,7 @@ footer{padding:46px 0 34px;}
       <span class="price">R$ 19,90</span>
     </div>
     <div class="cta-row" style="justify-content:center;margin-bottom:14px">
-      <a class="btn btn-gold hotmart-fb hotmart__button-checkout" href="https://pay.hotmart.com/V107300709G?checkoutMode=2" onclick="return false;">Comprar agora</a>
+      <a class="btn btn-gold" href="https://pay.hotmart.com/V107300709G" target="_blank" rel="noopener">Comprar agora</a>
       <a class="btn btn-wa" href="https://wa.me/5532988887135?text=Ol%C3%A1!%20Tenho%20uma%20d%C3%BAvida%20sobre%20o%20ebook%20Guia%20do%20T%C3%ADtulo%20Ideal." >Tirar uma dúvida</a>
     </div>
     <p class="reassure">Material de uso individual · © Clio Studios</p>
@@ -469,9 +464,5 @@ footer{padding:46px 0 34px;}
   document.addEventListener('keydown',function(e){if(e.key==='Escape')closePreview();});
 </script>
 
-<!-- Hotmart: carrega o widget de checkout (abre o pagamento em popup nos botões de compra) -->
-<script>
-(function(){var s=document.createElement('script');s.src='https://static.hotmart.com/checkout/widget.min.js';document.head.appendChild(s);var l=document.createElement('link');l.rel='stylesheet';l.href='https://static.hotmart.com/css/hotmart-fb.min.css';document.head.appendChild(l);})();
-</script>
 </body>
 </html>
