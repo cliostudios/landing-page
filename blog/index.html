@@ -76,16 +76,22 @@ nav.scrolled { padding:13px 64px; box-shadow:0 4px 32px rgba(30,30,30,.07); }
 
 /* ── BUSCA ── */
 .search-toggle {
-  margin-left:auto;
   display:flex;
   align-items:center;
   justify-content:center;
-  min-width:58px;
+  gap:8px;
+  padding:16px 28px;
 }
 .search-toggle svg {
   width:17px;
   height:17px;
   stroke:currentColor;
+  flex-shrink:0;
+}
+.search-toggle span {
+  font-size:.68rem;
+  letter-spacing:.16em;
+  text-transform:uppercase;
 }
 .search-toggle.search-open {
   color:var(--gold-lt);
@@ -254,6 +260,7 @@ footer {
       <circle cx="11" cy="11" r="7"></circle>
       <path d="m20 20-4-4"></path>
     </svg>
+    <span>Pesquisar</span>
   </button>
 </div>
 
