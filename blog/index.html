@@ -226,53 +226,10 @@ footer {
 
 const POSTS = [
   {
-    titulo: "Os 7 tipos de título que mais performam no YouTube — e como usar cada um",
+    titulo: "Como criar títulos para YouTube que as pessoas realmente queiram clicar",
     categoria: "titulo",
-    data: "12 ago 2025",
-    resumo: "Título é a porta de entrada do seu vídeo. Veja os modelos que testamos e os resultados que cada um gera.",
-    arquivo: "posts/7-tipos-de-titulo.html"
-  },
-  {
-    titulo: "Como estruturar uma linha editorial que cresce de forma consistente",
-    categoria: "estrategia",
-    data: "5 ago 2025",
-    resumo: "Linha editorial não é só escolher temas. É construir um sistema que trabalha para o seu canal todos os dias.",
-    arquivo: "posts/linha-editorial.html"
-  },
-  {
-    titulo: "O que faz uma thumbnail ser clicada — e o que faz ela ser ignorada",
-    categoria: "thumbnail",
-    data: "28 jul 2025",
-    resumo: "CTR começa antes do clique. Veja os elementos que realmente fazem diferença nos números.",
-    arquivo: "posts/thumbnail-ctr.html"
-  },
-  {
-    titulo: "Por que as pessoas abandonam seu vídeo nos primeiros 30 segundos",
-    categoria: "retencao",
-    data: "20 jul 2025",
-    resumo: "Entenda os padrões de abandono e como estruturar a abertura para manter o espectador assistindo.",
-    arquivo: "posts/abertura-retencao.html"
-  },
-  {
-    titulo: "Como o algoritmo do YouTube decide quem vai ver o seu vídeo",
-    categoria: "algoritmo",
-    data: "14 jul 2025",
-    resumo: "Entenda as métricas que mais pesam na distribuição e como otimizar o seu canal para ser recomendado.",
-    arquivo: "posts/algoritmo-youtube.html"
-  },
-  {
-    titulo: "Palavras-chave no YouTube: como pesquisar e aplicar do jeito certo",
-    categoria: "titulo",
-    data: "7 jul 2025",
-    resumo: "Pesquisa de palavra-chave no YouTube funciona diferente do Google. Veja como encontrar os termos certos.",
-    arquivo: "posts/palavras-chave-youtube.html"
-  },
-  {
-    titulo: "YouTube como canal de aquisição: como vender sem parecer que está vendendo",
-    categoria: "estrategia",
-    data: "1 jul 2025",
-    resumo: "Canais que convertem não vendem o tempo todo — eles posicionam. Entenda a lógica que transforma views em clientes.",
-    arquivo: "posts/youtube-aquisicao.html"
+    resumo: "Aprenda como criar títulos para YouTube mais clicáveis, equilibrando busca, curiosidade, thumbnail, palavras-chave, CTR e testes A/B.",
+    arquivo: "como-criar-titulos-para-youtube/"
   }
 ];
 
@@ -305,7 +262,6 @@ function renderPosts(cat) {
     el.className = 'post-item';
     el.innerHTML = `
       <div class="post-item-left">
-        <span class="post-item-date">${post.data}</span>
         <span class="post-item-cat">${catLabels[post.categoria] || post.categoria}</span>
       </div>
       <div class="post-item-body">
