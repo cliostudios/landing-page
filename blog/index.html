@@ -74,6 +74,70 @@ nav.scrolled { padding:13px 64px; box-shadow:0 4px 32px rgba(30,30,30,.07); }
 }
 .filter-btn.active, .filter-btn:hover { color:var(--gold-lt); border-bottom-color:var(--gold); }
 
+/* ── BUSCA ── */
+.search-toggle {
+  margin-left:auto;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  min-width:58px;
+}
+.search-toggle svg {
+  width:17px;
+  height:17px;
+  stroke:currentColor;
+}
+.search-toggle.search-open {
+  color:var(--gold-lt);
+  border-bottom-color:var(--gold);
+}
+.blog-search {
+  display:none;
+  padding:18px 72px 22px;
+  background:var(--dark);
+  border-top:1px solid rgba(189,136,64,.08);
+}
+.blog-search.open { display:block; }
+.search-inner {
+  max-width:860px;
+  margin:0 auto;
+  display:flex;
+  align-items:center;
+  gap:12px;
+  border:1px solid rgba(189,136,64,.28);
+  padding:0 16px;
+  background:rgba(255,249,251,.04);
+}
+.search-inner svg {
+  width:18px;
+  height:18px;
+  flex-shrink:0;
+  stroke:var(--gold-lt);
+}
+.search-input {
+  flex:1;
+  min-width:0;
+  padding:14px 0;
+  border:none;
+  outline:none;
+  background:transparent;
+  color:var(--cream);
+  font-family:'Jost',sans-serif;
+  font-size:.88rem;
+}
+.search-input::placeholder { color:rgba(255,249,251,.35); }
+.search-close {
+  border:none;
+  background:transparent;
+  color:rgba(255,249,251,.45);
+  font-family:'Jost',sans-serif;
+  font-size:1.25rem;
+  line-height:1;
+  cursor:pointer;
+  padding:8px 2px;
+}
+.search-close:hover { color:var(--gold-lt); }
+
 /* ── LISTA DE POSTS ── */
 .blog-list { max-width:860px; margin:0 auto; padding:72px 72px 96px; }
 
@@ -139,6 +203,8 @@ footer {
   .nav-links { display:none; }
   .blog-hero { padding:120px 24px 56px; }
   .blog-filters { padding:0 24px; }
+  .blog-search { padding:16px 24px 20px; }
+  .search-input { font-size:16px; }
   .blog-list { padding:48px 24px 72px; }
   .post-item { flex-wrap:wrap; gap:12px; }
   .post-item-left { width:100%; display:flex; gap:12px; align-items:center; }
@@ -183,6 +249,31 @@ footer {
   <button class="filter-btn" onclick="filterPosts(event,'thumbnail')">Thumbnails</button>
   <button class="filter-btn" onclick="filterPosts(event,'retencao')">Retenção</button>
   <button class="filter-btn" onclick="filterPosts(event,'algoritmo')">Algoritmo</button>
+  <button class="filter-btn search-toggle" id="search-toggle" type="button" onclick="toggleSearch()" aria-label="Pesquisar no blog" title="Pesquisar no blog">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <circle cx="11" cy="11" r="7"></circle>
+      <path d="m20 20-4-4"></path>
+    </svg>
+  </button>
+</div>
+
+<div class="blog-search" id="blog-search">
+  <div class="search-inner">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <circle cx="11" cy="11" r="7"></circle>
+      <path d="m20 20-4-4"></path>
+    </svg>
+    <input
+      type="search"
+      class="search-input"
+      id="blog-search-input"
+      placeholder="Pesquisar no blog..."
+      autocomplete="off"
+      aria-label="Pesquisar artigos do blog"
+      oninput="searchPosts(this.value)"
+    >
+    <button class="search-close" type="button" onclick="closeSearch()" aria-label="Fechar pesquisa">×</button>
+  </div>
 </div>
 
 <!-- LISTA -->
@@ -221,6 +312,7 @@ footer {
    - categoria: 'estrategia' | 'titulo' | 'thumbnail' | 'retencao' | 'algoritmo'
    - data: data de publicação (ex: "12 ago 2025")
    - resumo: uma frase curta descrevendo o artigo
+   - palavrasChave: termos adicionais usados apenas pela busca interna
    - arquivo: caminho do arquivo HTML do post (ex: "posts/nome-do-post.html")
 ══════════════════════════════════════════════ */
 
@@ -229,18 +321,21 @@ const POSTS = [
     titulo: "Como criar títulos para YouTube que as pessoas realmente queiram clicar",
     categoria: "titulo",
     resumo: "Aprenda como criar títulos para YouTube mais clicáveis, equilibrando busca, curiosidade, thumbnail, palavras-chave, CTR e testes A/B.",
+    palavrasChave: "youtube títulos titulo ctr clique cliques thumbnail miniatura seo busca pesquisável pesquisáveis recomendável recomendáveis teste ab palavras chave",
     arquivo: "como-criar-titulos-para-youtube/"
   },
   {
     titulo: "Como crescer um canal no YouTube: o que realmente faz um canal ganhar audiência",
     categoria: "estrategia",
     resumo: "Entenda o que realmente faz um canal crescer no YouTube, desde a escolha de temas e títulos até CTR, retenção, frequência e audiência.",
+    palavrasChave: "crescer canal youtube crescimento audiência visualizações views estratégia temas títulos thumbnails ctr retenção frequência público recomendação canal pequeno",
     arquivo: "como-crescer-canal-youtube/"
   },
   {
     titulo: "Quantas vezes postar no YouTube? Entenda a frequência ideal para crescer",
     categoria: "algoritmo",
     resumo: "Entenda quantas vezes postar no YouTube, como definir uma frequência sustentável e quando aumentar ou reduzir a quantidade de vídeos.",
+    palavrasChave: "frequência youtube quantas vezes postar postagem publicar vídeos consistência algoritmo calendário rotina crescimento canal",
     arquivo: "quantas-vezes-postar-no-youtube/"
   }
 ];
@@ -254,18 +349,51 @@ const catLabels = {
   algoritmo: 'Algoritmo'
 };
 
-function renderPosts(cat) {
+let currentCategory = 'todos';
+let currentSearch = '';
+
+function normalizeText(value) {
+  return String(value || '')
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase()
+    .trim();
+}
+
+function renderPosts(cat = currentCategory) {
+  currentCategory = cat;
+
   const list = document.getElementById('blog-list');
   const empty = document.getElementById('posts-empty');
-  const filtered = cat === 'todos' ? POSTS : POSTS.filter(p => p.categoria === cat);
+  const emptyText = empty.querySelector('p');
+
+  let filtered = cat === 'todos' ? POSTS : POSTS.filter(p => p.categoria === cat);
+
+  if (currentSearch) {
+    filtered = filtered.filter(post => {
+      const searchable = normalizeText([
+        post.titulo,
+        post.resumo,
+        post.categoria,
+        catLabels[post.categoria],
+        post.palavrasChave
+      ].join(' '));
+
+      return searchable.includes(currentSearch);
+    });
+  }
 
   // Remove posts anteriores (mantém o empty state)
   list.querySelectorAll('.post-item').forEach(el => el.remove());
 
   if (filtered.length === 0) {
+    emptyText.textContent = currentSearch
+      ? 'Nenhum artigo encontrado para esta pesquisa.'
+      : 'Nenhum artigo nesta categoria ainda.';
     empty.style.display = 'block';
     return;
   }
+
   empty.style.display = 'none';
 
   filtered.forEach(post => {
@@ -287,9 +415,44 @@ function renderPosts(cat) {
 }
 
 function filterPosts(e, cat) {
-  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-  e.target.classList.add('active');
+  document.querySelectorAll('.filter-btn:not(.search-toggle)').forEach(b => b.classList.remove('active'));
+  e.currentTarget.classList.add('active');
   renderPosts(cat);
+}
+
+function toggleSearch() {
+  const search = document.getElementById('blog-search');
+  const input = document.getElementById('blog-search-input');
+  const toggle = document.getElementById('search-toggle');
+  const opening = !search.classList.contains('open');
+
+  search.classList.toggle('open', opening);
+  toggle.classList.toggle('search-open', opening);
+
+  if (opening) {
+    setTimeout(() => input.focus(), 0);
+  } else {
+    input.value = '';
+    currentSearch = '';
+    renderPosts(currentCategory);
+  }
+}
+
+function closeSearch() {
+  const search = document.getElementById('blog-search');
+  const input = document.getElementById('blog-search-input');
+  const toggle = document.getElementById('search-toggle');
+
+  search.classList.remove('open');
+  toggle.classList.remove('search-open');
+  input.value = '';
+  currentSearch = '';
+  renderPosts(currentCategory);
+}
+
+function searchPosts(value) {
+  currentSearch = normalizeText(value);
+  renderPosts(currentCategory);
 }
 
 // Inicializa com todos os posts
