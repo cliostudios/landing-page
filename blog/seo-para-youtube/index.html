@@ -49,6 +49,7 @@ A seção "Oferta especial pro leitor" deve usar o componente .offer-box existen
 <meta content="SEO para YouTube ainda funciona em 2026? Entenda o que realmente ajuda vídeos a ranquear na busca do YouTube e também no Google." property="og:description"/>
 <meta content="https://www.cliostudios.com.br/blog/seo-para-youtube/" property="og:url"/>
 
+
 <meta content="summary" name="twitter:card"/>
 <meta content="SEO para YouTube em 2026: o que ajuda a ranquear | Clio Studios" name="twitter:title"/>
 <meta content="SEO para YouTube ainda funciona em 2026? Entenda o que realmente ajuda vídeos a ranquear na busca do YouTube e também no Google." name="twitter:description"/>
@@ -310,6 +311,36 @@ A seção "Oferta especial pro leitor" deve usar o componente .offer-box existen
       color:var(--muted);
     }
 
+
+    /* ── IMAGENS DOS ARTIGOS ── */
+    .article-content img {
+      display:block;
+      width:auto;
+      max-width:min(100%, 720px);
+      height:auto;
+      margin:30px auto 8px;
+    }
+
+    .article-content picture {
+      display:block;
+      margin:30px auto 8px;
+    }
+
+    .article-content picture img {
+      margin:0 auto;
+    }
+
+    .article-image-caption,
+    .article-content figcaption {
+      max-width:720px;
+      margin:0 auto 30px;
+      font-family:'Jost',sans-serif;
+      font-size:.82rem;
+      line-height:1.6;
+      font-style:italic;
+      color:var(--muted);
+    }
+
     .offer-box {
       margin:42px 0;
       padding:28px 30px;
@@ -496,6 +527,19 @@ A seção "Oferta especial pro leitor" deve usar o componente .offer-box existen
       }
       .article-content h2 { font-size:1.85rem; }
       .article-content h3 { font-size:1.4rem; }
+
+      .article-content img {
+        max-width:100%;
+        margin-top:24px;
+      }
+
+      .article-image-caption,
+      .article-content figcaption {
+        max-width:100%;
+        font-size:.78rem;
+        margin-bottom:26px;
+      }
+
       .offer-box { padding:24px 22px; }
       .author-box {
         align-items:flex-start;
@@ -580,9 +624,12 @@ A seção "Oferta especial pro leitor" deve usar o componente .offer-box existen
 
 <p>O vídeo acumulou 14.867 visualizações desde a publicação e continuou recebendo tráfego ao longo do tempo.</p>
 
-<img src="/images/blog/seo-para-youtube/1-seo-youtube-blog.png" alt="Análise do YouTube Studio mostrando visualizações e origens de tráfego de um vídeo de cliente da Clio Studios" style="max-width:100%;height:auto;"/>
+<picture>
+<source media="(max-width:560px)" srcset="/images/blog/seo-para-youtube/1-seo-youtube-blog-mobile.png">
+<img src="/images/blog/seo-para-youtube/1-seo-youtube-blog.png" alt="Análise do YouTube Studio mostrando visualizações e origens de tráfego de um vídeo de cliente da Clio Studios">
+</picture>
 
-<p><em>Exemplo real de vídeo de cliente da Clio Studios encontrado principalmente pela Pesquisa do YouTube e por tráfego externo vindo do Google. Fonte: YouTube Studio.</em></p>
+<p class="article-image-caption">Exemplo real de vídeo de cliente da Clio Studios encontrado principalmente pela Pesquisa do YouTube e por tráfego externo vindo do Google. Fonte: YouTube Studio.</p>
 
 <p>Esse tipo de resultado ajuda a entender uma das maiores vantagens de conteúdos buscáveis: <strong>eles não precisam depender apenas do pico inicial de distribuição</strong>. Enquanto houver pessoas procurando aquela resposta e o vídeo continuar competitivo para a consulta, ele pode continuar sendo descoberto.</p>
 
@@ -622,9 +669,9 @@ A seção "Oferta especial pro leitor" deve usar o componente .offer-box existen
 
 <p>O autocomplete da própria busca do YouTube é uma ferramenta simples para isso. Ao começar a digitar um assunto, você consegue enxergar diferentes formas pelas quais aquele tema aparece nas pesquisas.</p>
 
-<img src="/images/blog/seo-para-youtube/2-seo-youtube-blog.png" alt="Sugestões automáticas da busca do YouTube para a pesquisa bolo de cenoura" style="max-width:100%;height:auto;"/>
+<img src="/images/blog/seo-para-youtube/2-seo-youtube-blog.png" alt="Sugestões automáticas da busca do YouTube para a pesquisa bolo de cenoura">
 
-<p><em>As sugestões automáticas da busca ajudam a visualizar diferentes formas pelas quais os usuários pesquisam um mesmo assunto no YouTube.</em></p>
+<p class="article-image-caption">As sugestões automáticas da busca ajudam a visualizar diferentes formas pelas quais os usuários pesquisam um mesmo assunto no YouTube.</p>
 
 <p>O YouTube Studio também possui a guia <strong>Tendências</strong>, que permite explorar assuntos pesquisados pelo público, principais buscas e oportunidades de conteúdo. O próprio YouTube apresenta essa área como uma ferramenta para encontrar ideias e lacunas de conteúdo.</p>
 
@@ -748,9 +795,9 @@ A seção "Oferta especial pro leitor" deve usar o componente .offer-box existen
 
 <p>O exemplo mostrado anteriormente demonstra exatamente esse comportamento: um mesmo vídeo recebendo uma parcela relevante de audiência pela busca interna do YouTube e também pelo Google.</p>
 
-<img src="/images/blog/seo-para-youtube/3-seo-youtube-blog.png" alt="Resultado do Google exibindo um vídeo do YouTube gerido pela Clio Studios para uma pesquisa relacionada ao conteúdo" style="max-width:100%;height:auto;"/>
+<img src="/images/blog/seo-para-youtube/3-seo-youtube-blog.png" alt="Resultado do Google exibindo um vídeo do YouTube gerido pela Clio Studios para uma pesquisa relacionada ao conteúdo">
 
-<p><em>Exemplo de vídeo do YouTube, gerido pela Clio Studios, aparecendo diretamente nos resultados do Google para uma pesquisa relacionada ao tema do conteúdo.</em></p>
+<p class="article-image-caption">Exemplo de vídeo do YouTube, gerido pela Clio Studios, aparecendo diretamente nos resultados do Google para uma pesquisa relacionada ao tema do conteúdo.</p>
 
 <h2 id="nem-todo-video-precisa-ser-feito-para-busca">Nem todo vídeo precisa ser feito para busca</h2>
 
