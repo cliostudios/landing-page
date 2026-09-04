@@ -49,6 +49,7 @@ A seção "Oferta especial pro leitor" deve usar o componente .offer-box existen
 <meta content="Descubra 5 motivos que impedem um canal de crescer no YouTube e saiba o que corrigir em temas, CTR, thumbnails, retenção e estratégia." property="og:description"/>
 <meta content="https://www.cliostudios.com.br/blog/como-crescer-no-youtube/" property="og:url"/>
 
+
 <meta content="summary" name="twitter:card"/>
 <meta content="Como crescer no YouTube: 5 motivos do seu canal não crescer" name="twitter:title"/>
 <meta content="Descubra 5 motivos que impedem um canal de crescer no YouTube e saiba o que corrigir em temas, CTR, thumbnails, retenção e estratégia." name="twitter:description"/>
@@ -340,6 +341,53 @@ A seção "Oferta especial pro leitor" deve usar o componente .offer-box existen
       color:var(--muted);
     }
 
+
+    /* ── TABELAS DOS ARTIGOS ── */
+    .article-content table {
+      width:100%;
+      border-collapse:separate;
+      border-spacing:0;
+      margin:34px 0;
+      background:#fffdfd;
+      border:1px solid rgba(189,136,64,.22);
+      border-radius:10px;
+      overflow:hidden;
+      font-size:.93rem;
+      line-height:1.55;
+    }
+
+    .article-content th {
+      background:#f1e7df;
+      color:#2d2926;
+      font-weight:600;
+      text-align:left;
+      padding:15px 16px;
+      border-right:1px solid rgba(189,136,64,.18);
+      border-bottom:1px solid rgba(189,136,64,.28);
+      vertical-align:top;
+    }
+
+    .article-content td {
+      padding:14px 16px;
+      border-right:1px solid rgba(189,136,64,.14);
+      border-bottom:1px solid rgba(189,136,64,.14);
+      vertical-align:top;
+      color:#4b433d;
+    }
+
+    .article-content th:last-child,
+    .article-content td:last-child {
+      border-right:0;
+    }
+
+    .article-content tr:last-child td {
+      border-bottom:0;
+    }
+
+    .article-content tbody tr:nth-child(even) td {
+      background:rgba(245,237,232,.55);
+    }
+
     .offer-box {
       margin:42px 0;
       padding:28px 30px;
@@ -539,6 +587,19 @@ A seção "Oferta especial pro leitor" deve usar o componente .offer-box existen
         margin-bottom:26px;
       }
 
+
+      .article-content table {
+        font-size:.82rem;
+        table-layout:fixed;
+      }
+
+      .article-content th,
+      .article-content td {
+        padding:10px 8px;
+        overflow-wrap:anywhere;
+        word-break:normal;
+      }
+
       .offer-box { padding:24px 22px; }
       .author-box {
         align-items:flex-start;
@@ -574,7 +635,6 @@ A seção "Oferta especial pro leitor" deve usar o componente .offer-box existen
 </ul>
 <a class="nav-cta" href="/#contato">Solicitar Proposta</a>
 </nav>
-
 <!-- ARTICLE HERO -->
 <header class="article-hero">
 <div class="article-hero-inner">
@@ -583,7 +643,6 @@ A seção "Oferta especial pro leitor" deve usar o componente .offer-box existen
 <h1 class="article-title">Como crescer no YouTube: 5 motivos do seu canal não crescer e como corrigir</h1>
 </div>
 </header>
-
 <!-- ARTICLE -->
 <main class="article-wrap">
 <article class="article-content">
@@ -678,44 +737,39 @@ A seção "Oferta especial pro leitor" deve usar o componente .offer-box existen
 
 <p>Uma análise simples pode seguir esta lógica:</p>
 
-<table width="100%" cellpadding="14" cellspacing="0">
-<colgroup>
-<col width="32%"/>
-<col width="32%"/>
-<col width="36%"/>
-</colgroup>
+<table>
 <thead>
 <tr>
-<th align="left" valign="top">O que você observa</th>
-<th align="left" valign="top">O que pode indicar</th>
-<th align="left" valign="top">O que revisar</th>
+<th>O que você observa</th>
+<th>O que pode indicar</th>
+<th>O que revisar</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left" valign="top">Poucas impressões em vários vídeos</td>
-<td align="left" valign="top">Tema, público ou potencial de distribuição</td>
-<td align="left" valign="top">Escolha de assuntos e consistência temática</td>
+<td>Poucas impressões em vários vídeos</td>
+<td>Tema, público ou potencial de distribuição</td>
+<td>Escolha de assuntos e consistência temática</td>
 </tr>
 <tr>
-<td align="left" valign="top">Muitas impressões e poucos cliques</td>
-<td align="left" valign="top">Embalagem pouco competitiva</td>
-<td align="left" valign="top">Título e thumbnail</td>
+<td>Muitas impressões e poucos cliques</td>
+<td>Embalagem pouco competitiva</td>
+<td>Título e thumbnail</td>
 </tr>
 <tr>
-<td align="left" valign="top">Cliques, mas queda forte no início</td>
-<td align="left" valign="top">Promessa não sustentada rapidamente</td>
-<td align="left" valign="top">Introdução e alinhamento com título/thumbnail</td>
+<td>Cliques, mas queda forte no início</td>
+<td>Promessa não sustentada rapidamente</td>
+<td>Introdução e alinhamento com título/thumbnail</td>
 </tr>
 <tr>
-<td align="left" valign="top">Bons vídeos isolados, mas pouca recorrência</td>
-<td align="left" valign="top">Falta de continuidade entre conteúdos</td>
-<td align="left" valign="top">Séries, temas relacionados e próximos vídeos</td>
+<td>Bons vídeos isolados, mas pouca recorrência</td>
+<td>Falta de continuidade entre conteúdos</td>
+<td>Séries, temas relacionados e próximos vídeos</td>
 </tr>
 <tr>
-<td align="left" valign="top">Resultados muito diferentes sem padrão aparente</td>
-<td align="left" valign="top">Estratégia sem comparação de contexto</td>
-<td align="left" valign="top">Origem de tráfego, audiência, formato e histórico</td>
+<td>Resultados muito diferentes sem padrão aparente</td>
+<td>Estratégia sem comparação de contexto</td>
+<td>Origem de tráfego, audiência, formato e histórico</td>
 </tr>
 </tbody>
 </table>
@@ -739,7 +793,6 @@ A seção "Oferta especial pro leitor" deve usar o componente .offer-box existen
 <a href="/#contato">Conheça a Clio Studios →</a>
 </div>
 </main>
-
 <!-- FOOTER -->
 <footer>
 <div>
@@ -755,7 +808,6 @@ A seção "Oferta especial pro leitor" deve usar o componente .offer-box existen
 <a href="https://wa.me/5532988887135" rel="noopener" target="_blank">wa</a>
 </div>
 </footer>
-
 <script>
     window.addEventListener('scroll', () => {
       document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 50);
